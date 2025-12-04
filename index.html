@@ -8,9 +8,10 @@
     <script type="module" src="/src/main.ts" defer></script>
   </head>
   <body>
+    <div class="Play"></div>
     <div class="spaceshipchooser">
-      <div class="spaceships spaceshipRed">
-        <img src="src/Imgages/SpaceshipRed.png" alt="Spaceshipred" />
+      <div class="spaceships spaceshipRed selectedSpaceship">
+        <img src="src/Imgages/SpaceshipRed.png" alt="SpaceshipRed" />
         <span>Red Monster</span>
       </div>
       <div class="spaceships spaceshipYellow">
@@ -56,23 +57,39 @@
       </div>
     </div>
     <div class="settingsList">
-      <p>Change Difficulty</p>
-      <select class="diff">
-        <span class="easy">Easy</span>
-        <span class="selectedDiff normal">Normal</span>
-        <span class="hard">Hard</span>
-      </select>
-      <p class="changeSpaceship">Change Spaceship</p>
-      <p class="changeTheme">Change Theme</p>
+      <div class="diff">Change Difficulty</div>
+      <div class="diffselecterdiv">
+        <input id="option1" type="radio" name="difchange" value="easy" /><label
+          for="option1"
+          class="easy"
+          >Easy</label
+        >
+        <input
+          id="option2"
+          type="radio"
+          name="difchange"
+          value="normal"
+        /><label for="option2" class="normal selectedDiff">Normal</label>
+        <input id="option3" type="radio" name="difchange" value="hard" /><label
+          for="option3"
+          class="hard"
+          >Hard</label
+        >
+      </div>
+      <div class="changeSpaceship">Change Spaceship</div>
+      <div class="changeTheme">Change Theme</div>
       <div class="backroundChooser">
         <div class="selectedBg">
           Space <img src="src/Imgages/BackgroundSpace.png" alt="Space" />
         </div>
-        <div>
+        <div class="">
           Desert <img src="src/Imgages/BackgroundDesert.png" alt="Space" />
         </div>
-        <div>Moon <img src="src/Imgages/BackgroundMoon.jpg" alt="Space" /></div>
+        <div class="">
+          Moon <img src="src/Imgages/BackgroundMoon.jpg" alt="Space" />
+        </div>
       </div>
+      <div class="apply">Apply</div>
     </div>
     <div class="map">
       <div class="spaceship"></div>
