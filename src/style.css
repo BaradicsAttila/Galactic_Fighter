@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  
+  user-select: none;
 }
 
 .map {
@@ -65,13 +65,11 @@ body {
   font-weight: bold;
   font-size: 30px;
   padding-left: 10px;
-  
 }
 
 .currentScore {
   width: 400px;
   height: 50px;
-  
 }
 
 .bestScore {
@@ -156,8 +154,6 @@ body {
   top: 10px;
   position: relative;
   padding-left: 10px;
-
-
 }
 
 .backroundChooser img {
