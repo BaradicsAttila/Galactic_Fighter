@@ -26,8 +26,12 @@ document.querySelector(".apply")!.addEventListener("click", () => {
   if (theme.includes("BackgroundDesert.png")) {
     (document.querySelector(".scoreBoard") as HTMLDivElement).style.color =
       "rgb(143, 90, 66)";
+    (document.querySelector(".timer") as HTMLDivElement).style.color =
+      "rgb(143, 90, 66)";
   } else {
     (document.querySelector(".scoreBoard") as HTMLDivElement).style.color =
+      "wheat";
+    (document.querySelector(".timer") as HTMLDivElement).style.color =
       "wheat";
   }
 });
