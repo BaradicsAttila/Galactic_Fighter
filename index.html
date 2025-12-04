@@ -9,15 +9,15 @@
   </head>
   <body>
     <div class="spaceshipchooser">
-      <div class="spaceships spaceship1">
+      <div class="spaceships spaceshipRed">
         <img src="src/Imgages/SpaceshipRed.png" alt="Spaceshipred" />
         <span>Red Monster</span>
       </div>
-      <div class="spaceships spaceship2">
+      <div class="spaceships spaceshipYellow">
         <img src="src/Imgages/SpaceshipYellow.png" alt="SpaceshipYellow" />
         <span>Red Monster</span>
       </div>
-      <div class="spaceships spaceship3">
+      <div class="spaceships spaceshipLightBlue">
         <img
           src="src/Imgages/SpaceshipLightBlue.png"
           alt="SpaceshipLightBlue"
@@ -57,12 +57,13 @@
     </div>
     <div class="settingsList">
       <p>Change Difficulty</p>
-      <div class="diff">
-        <span>Easy</span> <span class="selectedDiff">Normal</span>
-        <span>Hard</span>
-      </div>
-      <p>Change Spaceship</p>
-      <p>Change Theme</p>
+      <select class="diff">
+        <span class="easy">Easy</span>
+        <span class="selectedDiff normal">Normal</span>
+        <span class="hard">Hard</span>
+      </select>
+      <p class="changeSpaceship">Change Spaceship</p>
+      <p class="changeTheme">Change Theme</p>
       <div class="backroundChooser">
         <div class="selectedBg">
           Space <img src="src/Imgages/BackgroundSpace.png" alt="Space" />
