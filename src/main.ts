@@ -22,7 +22,6 @@ document.querySelector(".apply")!.addEventListener("click", () => {
   spaceshipDiv.style.backgroundImage = `url(src/Imgages/${spaceship}.png)`;
   theme = themefinder();
   document.body.style.backgroundImage = `url(${theme})`;
-  console.log(theme);
   if (theme.includes("BackgroundDesert.png")) {
     (document.querySelector(".scoreBoard") as HTMLDivElement).style.color =
       "rgb(143, 90, 66)";
@@ -31,7 +30,6 @@ document.querySelector(".apply")!.addEventListener("click", () => {
   } else {
     (document.querySelector(".scoreBoard") as HTMLDivElement).style.color =
       "wheat";
-    (document.querySelector(".timer") as HTMLDivElement).style.color =
-      "wheat";
+    (document.querySelector(".timer") as HTMLDivElement).style.color = "wheat";
   }
 });
