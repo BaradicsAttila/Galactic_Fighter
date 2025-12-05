@@ -8,7 +8,15 @@
     <script type="module" src="/src/main.ts" defer></script>
   </head>
   <body>
-    <div class="Play"></div>
+    <div class="menu">
+      <div class="gametitle">Galactic Fighter</div>
+      <div class="menuponts">
+        <div class="startGame">Start Game</div>
+        <div class="instructions">Instructions</div>
+        <div class="menusettings">Settings</div>
+        <div class="credits">Credits</div>
+      </div>
+    </div>
     <div class="spaceshipchooser">
       <div class="spaceships spaceshipRed selectedSpaceship">
         <img src="src/Imgages/SpaceshipRed.png" alt="SpaceshipRed" />
@@ -46,11 +54,9 @@
         <span>Red Monster</span>
       </div>
     </div>
-    <div class="timer">
-      Time: <span>00:00</span>
-      <div class="hartimg"></div>
-    </div>
-    <div class="menu">
+    <div class="timer">Time: <span>00:00</span></div>
+    <div class="harts"></div>
+    <div class="headbar">
       <div class="scoreBoard">
         <div class="currentScore">Current Score: 0</div>
         <div class="bestScore">Best Score: 0</div>
@@ -94,8 +100,9 @@
           Moon <img src="src/Imgages/BackgroundMoon.jpg" alt="Space" />
         </div>
       </div>
-      <div class="apply">Apply</div>
+      <div class="apply"></div>
     </div>
+    <div class="backToMenu"></div>
     <div class="map">
       <div class="spaceship"></div>
     </div>
