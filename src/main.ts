@@ -5,6 +5,7 @@ import spaceshipfinder from "./spaceshipfinder";
 import themefinder from "./themefinder";
 import damagerecived from "./damagerecived";
 import menu from "./menu";
+import backMenu from "./menu";
 
 // desert color: rgb(143, 90, 66)
 let difficulty: string = "normal";
@@ -19,7 +20,10 @@ const spaceshipDiv: HTMLDivElement = document.querySelector(
 ) as HTMLDivElement;
 
 document.querySelector(".startGame")!.addEventListener("click", () => {
-  menu();
+  (document.querySelector(".menu") as HTMLDivElement).style.display = "none";
+});
+document.querySelector(".backToMenu")!.addEventListener("click", () => {
+  (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
 });
 settings(difficulty, spaceship, theme);
 difficulty = difficultyfinder();
