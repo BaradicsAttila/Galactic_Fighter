@@ -1,11 +1,10 @@
-function menusettings(): void {
+function credits(): void {
   (document.querySelector(".menuponts") as HTMLDivElement).style.display =
     "none";
-  (
-    document.querySelector(".menuSettingsList") as HTMLDivElement
-  ).style.display = "block";
+  (document.querySelector(".creditslist") as HTMLDivElement).style.display =
+    "block";
   (document.querySelector(".gametitle") as HTMLDivElement).style.display =
     "none";
 }
 
-export default menusettings;
+export default credits;

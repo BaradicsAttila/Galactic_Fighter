@@ -1,4 +1,4 @@
-function backtomenubtn() {
+function backtomenubtn(): void {
   (document.querySelector(".menuponts") as HTMLDivElement).style.display =
     "flex";
   (document.querySelector(".instrlist") as HTMLDivElement).style.display =
@@ -8,6 +8,8 @@ function backtomenubtn() {
   (
     document.querySelector(".menuSettingsList") as HTMLDivElement
   ).style.display = "none";
+  (document.querySelector(".creditslist") as HTMLDivElement).style.display =
+    "none";
 }
 
 export default backtomenubtn;
