@@ -11,10 +11,11 @@ body {
 }
 
 .map {
-  height: 660px;
+  height: 800px;
   width: 100%;
   margin-left: 10px;
   position: fixed;
+  z-index: -1;
 }
 
 .headbar {
