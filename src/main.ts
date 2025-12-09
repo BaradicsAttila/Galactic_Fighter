@@ -18,19 +18,30 @@ const spaceshipDiv: HTMLDivElement = document.querySelector(
   ".spaceship"
 ) as HTMLDivElement;
 
-document.querySelector(".backToMenu")!.addEventListener("click", () => {
+const backtomenubtns = document.querySelectorAll(".backToMenu");
+
+backtomenubtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
   (document.querySelector(".menuponts") as HTMLDivElement).style.display =
     "flex";
   (document.querySelector(".instrlist") as HTMLDivElement).style.display =
     "none";
   (document.querySelector(".gametitle") as HTMLDivElement).style.display =
     "block";
+  (document.querySelector(".menuSettingsList") as HTMLDivElement).style.display =
+    "none";
+  });
 });
+
 document.querySelector(".backToMainMenu")!.addEventListener("click", () => {
   (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
 });
 document.querySelector(".startGame")!.addEventListener("click", () => {
   (document.querySelector(".menu") as HTMLDivElement).style.display = "none";
+  (document.querySelector(".settingsList") as HTMLDivElement).style.display = "none";
+  (document.querySelector(".backroundChooser") as HTMLDivElement).style.display = "none";
+  (document.querySelector(".diffselecterdiv") as HTMLDivElement).style.display = "none";
+  (document.querySelector(".spaceshipchooser") as HTMLDivElement).style.display = "none";
 });
 document.querySelector(".instructions")!.addEventListener("click", () => {
   (document.querySelector(".menuponts") as HTMLDivElement).style.display =

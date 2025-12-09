@@ -301,7 +301,7 @@ body {
   background-color: rgba(0, 0, 0, 70%);
   border: 3px white solid;
   border-radius: 20px;
-  color: white;
+  color: wheat;
   font-family: cursive;
   padding: 20px;
   font-size: 20px;
@@ -317,4 +317,22 @@ body {
 .instrlist p {
   margin: 3px;
   font-size: 18px;
+}
+
+.menuSettingsList {
+  background-color: rgba(0, 0, 0, 70%);
+  border: 3px white solid;
+  border-radius: 20px;
+  color: wheat;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 400px;
+  height: 200px;
+  display: none;
 }
