@@ -38,9 +38,9 @@ function settings(difficulty: string, spaceship: string, theme: string): void {
     } else {
       settingsList.style.display = "block";
     }
-      spaceshipChooser.style.display = "none";
-      themeChooser.style.display = "none";
-      diffselecterdiv.style.display = "none";
+    spaceshipChooser.style.display = "none";
+    themeChooser.style.display = "none";
+    diffselecterdiv.style.display = "none";
   });
 
   difficultySelect.addEventListener("click", () => {
