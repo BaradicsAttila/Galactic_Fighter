@@ -4,8 +4,7 @@ import difficultyfinder from "./difficultyfinder";
 import spaceshipfinder from "./spaceshipfinder";
 import themefinder from "./themefinder";
 import damagerecived from "./damagerecived";
-import menu from "./menu";
-import backMenu from "./menu";
+import menusettings from "./menuSettings";
 
 // desert color: rgb(143, 90, 66)
 let difficulty: string = "normal";
@@ -19,11 +18,31 @@ const spaceshipDiv: HTMLDivElement = document.querySelector(
   ".spaceship"
 ) as HTMLDivElement;
 
+document.querySelector(".backToMenu")!.addEventListener("click", () => {
+  (document.querySelector(".menuponts") as HTMLDivElement).style.display =
+    "flex";
+  (document.querySelector(".instrlist") as HTMLDivElement).style.display =
+    "none";
+  (document.querySelector(".gametitle") as HTMLDivElement).style.display =
+    "block";
+});
+document.querySelector(".backToMainMenu")!.addEventListener("click", () => {
+  (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
+});
 document.querySelector(".startGame")!.addEventListener("click", () => {
   (document.querySelector(".menu") as HTMLDivElement).style.display = "none";
 });
-document.querySelector(".backToMenu")!.addEventListener("click", () => {
-  (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
+document.querySelector(".instructions")!.addEventListener("click", () => {
+  (document.querySelector(".menuponts") as HTMLDivElement).style.display =
+    "none";
+  (document.querySelector(".instrlist") as HTMLDivElement).style.display =
+    "block";
+  (document.querySelector(".gametitle") as HTMLDivElement).style.display =
+    "none";
+});
+
+document.querySelector(".menuSettings")!.addEventListener("click", () => {
+  menusettings();
 });
 settings(difficulty, spaceship, theme);
 difficulty = difficultyfinder();

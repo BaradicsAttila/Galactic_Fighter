@@ -273,6 +273,18 @@ body {
   text-align: center;
 }
 
+.backToMainMenu {
+  background-image: url(Imgages/MainMenubutton.png);
+  background-size: 100%;
+  background-position: center;
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  right: 30px;
+  bottom: 30px;
+  cursor: pointer;
+}
+
 .backToMenu {
   background-image: url(Imgages/MainMenubutton.png);
   background-size: 100%;
@@ -298,7 +310,8 @@ body {
   left: 50%;
   translate: -50% -50%;
   width: 600px;
-  height: 800px;
+  height: 850px;
+  display: none;
 }
 
 .instrlist p {
