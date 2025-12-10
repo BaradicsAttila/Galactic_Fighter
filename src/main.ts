@@ -31,8 +31,6 @@ spaceship = spaceshipfinder();
 theme = themefinder();
 document.querySelector(".apply")!.addEventListener("click", () => {
   applySettings(difficulty, spaceship, theme);
-  console.log(shipPositionx, shipPositiony);
-  console.log(buttonsPressed);
 });
 
 backtomenubtns.forEach((btn) => {
@@ -71,30 +69,34 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
   }
 });
 
-let buttonsPressed: number = 0;
+let pressedkeys: Set<string> = new Set();
 let movetimer: number;
+let ismovementActive: boolean = false;
 document.addEventListener("keydown", (event: KeyboardEvent) => {
-  if (event.repeat == false) {
-    buttonsPressed++;
-    console.log("buttonsPressed");
-    movetimer = setInterval(() => {
-      shipPositionx = parseInt(
-        getComputedStyle(document.querySelector(".spaceship") as HTMLDivElement)
-          .left
-      );
-      shipPositiony = parseInt(
-        getComputedStyle(document.querySelector(".spaceship") as HTMLDivElement)
-          .bottom
-      );
-      console.log("running");
-    }, 10);
+  if (!event.repeat) {
+    pressedkeys.add(event.key);
+    if (!ismovementActive) {
+      ismovementActive = true;
+      movetimer = setInterval(() => {
+        shipPositionx = parseInt(
+          getComputedStyle(
+            document.querySelector(".spaceship") as HTMLDivElement
+          ).left
+        );
+        shipPositiony = parseInt(
+          getComputedStyle(
+            document.querySelector(".spaceship") as HTMLDivElement
+          ).bottom
+        );
+      }, 10);
+    }
   }
 });
 
-document.addEventListener("keyup", () => {
-  buttonsPressed--;
-  console.log("ButtonRelased");
-  if (buttonsPressed == 0) {
+document.addEventListener("keyup", (event: KeyboardEvent) => {
+  pressedkeys.delete(event.key);
+  if (pressedkeys.size == 0) {
     clearInterval(movetimer);
+    ismovementActive = false;
   }
 });

@@ -3,10 +3,8 @@ function movement(
   shipPositionx: number,
   shipPositiony: number
 ): void {
-
   if (event.key == "w" && event.repeat == false) {
     let wTimer: number = setInterval(() => {
-
       shipPositiony = parseInt(
         getComputedStyle(document.querySelector(".spaceship") as HTMLDivElement)
           .bottom
@@ -20,7 +18,6 @@ function movement(
     }, 10);
     document.addEventListener("keyup", (event: KeyboardEvent) => {
       if (event.key == "w") {
-
         clearInterval(wTimer);
       }
     });
