@@ -358,3 +358,22 @@ body {
   height: 850px;
   display: none;
 }
+
+.shot {
+  width: 90px;
+  height: 60px;
+  position: absolute;
+  display: none;
+  background-image: url(Imgages/shot.png);
+  background-size: cover;
+}
+
+.enemy {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  display: none;
+  background-image: url(Imgages/enemy.png);
+  background-size: cover;
+  left: 2200px;
+}

@@ -11,6 +11,10 @@ import applySettings from "./applySettings";
 import instructions from "./instructions";
 import credits from "./credits";
 import movement from "./movement";
+import shotFired from "./shotfired";
+import enemySpawn from "./enemyspawn";
+import enemyShot from "./enemyshot";
+import enemyKilled from "./enemykilled";
 
 // desert color: rgb(143, 90, 66)
 let difficulty: string = "normal";
@@ -61,6 +65,9 @@ document.querySelector(".exit")!.addEventListener("click", () => {
 
 document.querySelector(".startGame")!.addEventListener("click", () => {
   startGame();
+  enemySpawn(isGameOver);
+  enemyKilled();
+  enemyShot();
 });
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {
@@ -98,5 +105,11 @@ document.addEventListener("keyup", (event: KeyboardEvent) => {
   if (pressedkeys.size == 0) {
     clearInterval(movetimer);
     ismovementActive = false;
+  }
+});
+
+document.addEventListener("keydown", (event: KeyboardEvent) => {
+  if (event.key == " " && event.repeat == false) {
+    shotFired();
   }
 });

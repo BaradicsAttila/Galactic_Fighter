@@ -1,0 +1,26 @@
+function enemySpawn(isGameOver: boolean) {
+  const map: HTMLDivElement = document.querySelector(".map") as HTMLDivElement;
+  let enemy: HTMLDivElement = document.createElement("div");
+  let timeBetweenSpawns: number = Math.round(Math.random() * 2000 + 500);
+  let randompos: number = Math.round(
+    Math.random() * parseInt(getComputedStyle(map).height) * 0.75 + 50
+  );
+  let randomStop: number = Math.round(Math.random() * 300 + 1450);
+  map.appendChild(enemy);
+  enemy.classList.add("enemy");
+  enemy.style.bottom = randompos + "px";
+  enemy.style.display = "block";
+  let enemytimer: number = setInterval(() => {
+    if (parseInt(getComputedStyle(enemy).left) > randomStop) {
+      let enemyLeft: number = parseInt(getComputedStyle(enemy).left);
+      enemyLeft -= 20;
+      enemy.style.left = enemyLeft + "px";
+    } else clearInterval(enemytimer);
+  }, 20);
+
+  if (!isGameOver) {
+    setTimeout(enemySpawn, timeBetweenSpawns);
+  }
+}
+
+export default enemySpawn;
