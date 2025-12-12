@@ -13,7 +13,7 @@ import credits from "./Menu/credits";
 import movement from "./Gameplay/movement";
 import shotFired from "./Gameplay/shotfired";
 import enemySpawn from "./Gameplay/enemyspawn";
-import enemyShot from "./enemyshot";
+import enemyShot from "./Gameplay/enemyshot";
 import enemyKilled from "./Gameplay/enemykilled";
 import reset from "./Menu/reset";
 
