@@ -6,6 +6,7 @@ import themefinder from "./Settings/themefinder";
 import damagerecived from "./Gameplay/damagerecived";
 import menusettings from "./Menu/menuSettings";
 import startGame from "./Menu/startgame";
+import gameTimer from "./Gameplay/gameTimer";
 import backtomenubtn from "./Menu/backtomenubtn";
 import applySettings from "./Settings/applySettings";
 import instructions from "./Menu/instructions";
@@ -67,6 +68,7 @@ document.querySelector(".exit")!.addEventListener("click", () => {
 
 document.querySelector(".startGame")!.addEventListener("click", () => {
   startGame();
+  gameTimer(isGameOver);
   enemySpawn(isGameOver);
   enemyKilled(isGameOver);
   enemyShot();
