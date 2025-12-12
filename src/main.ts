@@ -1,20 +1,21 @@
 import "./style.css";
-import settings from "./settings";
-import difficultyfinder from "./difficultyfinder";
-import spaceshipfinder from "./spaceshipfinder";
-import themefinder from "./themefinder";
-import damagerecived from "./damagerecived";
-import menusettings from "./menuSettings";
-import startGame from "./startgame";
-import backtomenubtn from "./backtomenubtn";
-import applySettings from "./applySettings";
-import instructions from "./instructions";
-import credits from "./credits";
-import movement from "./movement";
-import shotFired from "./shotfired";
-import enemySpawn from "./enemyspawn";
+import settings from "./Settings/settings";
+import difficultyfinder from "./Settings/difficultyfinder";
+import spaceshipfinder from "./Settings/spaceshipfinder";
+import themefinder from "./Settings/themefinder";
+import damagerecived from "./Gameplay/damagerecived";
+import menusettings from "./Menu/menuSettings";
+import startGame from "./Menu/startgame";
+import backtomenubtn from "./Menu/backtomenubtn";
+import applySettings from "./Settings/applySettings";
+import instructions from "./Menu/instructions";
+import credits from "./Menu/credits";
+import movement from "./Gameplay/movement";
+import shotFired from "./Gameplay/shotfired";
+import enemySpawn from "./Gameplay/enemyspawn";
 import enemyShot from "./enemyshot";
-import enemyKilled from "./enemykilled";
+import enemyKilled from "./Gameplay/enemykilled";
+import reset from "./Menu/reset";
 
 // desert color: rgb(143, 90, 66)
 let difficulty: string = "normal";
@@ -44,7 +45,8 @@ backtomenubtns.forEach((btn) => {
 });
 
 document.querySelector(".backToMainMenu")!.addEventListener("click", () => {
-  (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
+  reset();
+  isGameOver = true;
 });
 
 document.querySelector(".instructions")!.addEventListener("click", () => {
@@ -66,8 +68,9 @@ document.querySelector(".exit")!.addEventListener("click", () => {
 document.querySelector(".startGame")!.addEventListener("click", () => {
   startGame();
   enemySpawn(isGameOver);
-  enemyKilled();
+  enemyKilled(isGameOver);
   enemyShot();
+  isGameOver = false;
 });
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {

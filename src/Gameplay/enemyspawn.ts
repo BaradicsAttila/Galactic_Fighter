@@ -1,12 +1,14 @@
 function enemySpawn(isGameOver: boolean) {
-  const map: HTMLDivElement = document.querySelector(".map") as HTMLDivElement;
+  const enemyArea: HTMLDivElement = document.querySelector(
+    ".enemyarea"
+  ) as HTMLDivElement;
   let enemy: HTMLDivElement = document.createElement("div");
   let timeBetweenSpawns: number = Math.round(Math.random() * 2000 + 500);
   let randompos: number = Math.round(
-    Math.random() * parseInt(getComputedStyle(map).height) * 0.75 + 50
+    Math.random() * parseInt(getComputedStyle(enemyArea).height) * 0.75 + 50
   );
   let randomStop: number = Math.round(Math.random() * 300 + 1450);
-  map.appendChild(enemy);
+  enemyArea.appendChild(enemy);
   enemy.classList.add("enemy");
   enemy.style.bottom = randompos + "px";
   enemy.style.display = "block";
