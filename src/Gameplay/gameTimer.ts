@@ -1,4 +1,4 @@
-function gameTimer(isGameOver: boolean) {
+function gameTimer(IsGameOver: { isGameOver: boolean }) {
   let minutes: number = 0;
   let seconds: number = 0;
 
@@ -12,6 +12,9 @@ function gameTimer(isGameOver: boolean) {
       minutes.toString().padStart(2, "0") +
       ":" +
       seconds.toString().padStart(2, "0");
+    if (IsGameOver.isGameOver) {
+      clearInterval(timertimer);
+    }
   }, 1000);
 }
 

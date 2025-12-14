@@ -1,4 +1,4 @@
-function enemyKilled(isGameOver: boolean) {
+function enemyKilled(IsGameOver: { isGameOver: boolean }) {
   let score: HTMLSpanElement = document.querySelector(
     ".scoreNumber"
   ) as HTMLSpanElement;
@@ -6,8 +6,10 @@ function enemyKilled(isGameOver: boolean) {
   const enemyArea: HTMLDivElement = document.querySelector(
     ".enemyarea"
   ) as HTMLDivElement;
-  const map: HTMLDivElement = document.querySelector(".map") as HTMLDivElement;
-  if (map.childElementCount > 1 && enemyArea.childElementCount > 0) {
+  const shots: HTMLDivElement = document.querySelector(
+    ".shots"
+  ) as HTMLDivElement;
+  if (shots.childElementCount > 0 && enemyArea.childElementCount > 0) {
     let shot: HTMLDivElement = document.querySelector(
       ".shot"
     ) as HTMLDivElement;
@@ -19,6 +21,7 @@ function enemyKilled(isGameOver: boolean) {
       let enemyPosY: number = parseInt(getComputedStyle(enemy).bottom);
       if (
         enemyPosX < shotPositionX &&
+        enemyPosX > shotPositionX - 50 &&
         enemyPosY < shotPositionY + 20 &&
         enemyPosY > shotPositionY - 50
       ) {
@@ -29,14 +32,16 @@ function enemyKilled(isGameOver: boolean) {
       }
     });
   }
-  if (isGameOver) {
+  if (IsGameOver.isGameOver) {
     while (enemyArea.firstChild) {
       enemyArea.removeChild(enemyArea.lastChild!);
     }
   }
 
-  if (!isGameOver) {
-    setTimeout(enemyKilled, 10);
+  if (!IsGameOver.isGameOver) {
+    setTimeout(() => {
+      enemyKilled(IsGameOver);
+    }, 10);
   }
 }
 

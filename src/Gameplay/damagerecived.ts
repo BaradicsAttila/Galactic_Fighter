@@ -3,6 +3,7 @@ function damagerecived(health: number): number {
   (document.querySelector(".harts") as HTMLDivElement).style.width = `${
     health * 60
   }px`;
+
   return health;
 }
 

@@ -1,5 +1,7 @@
 function shotFired() {
-  const map: HTMLDivElement = document.querySelector(".map") as HTMLDivElement;
+  const shots: HTMLDivElement = document.querySelector(
+    ".shots"
+  ) as HTMLDivElement;
   let shot: HTMLDivElement = document.createElement("div");
   let shotPosX: number =
     parseInt(
@@ -10,7 +12,7 @@ function shotFired() {
     getComputedStyle(document.querySelector(".spaceship") as HTMLDivElement)
       .bottom
   );
-  map.appendChild(shot);
+  shots.appendChild(shot);
   shot.classList.add("shot");
   shot.style.left = shotPosX + "px";
   shot.style.bottom = shotPosY + "px";

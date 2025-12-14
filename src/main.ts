@@ -3,9 +3,7 @@ import settings from "./Settings/settings";
 import difficultyfinder from "./Settings/difficultyfinder";
 import spaceshipfinder from "./Settings/spaceshipfinder";
 import themefinder from "./Settings/themefinder";
-import damagerecived from "./Gameplay/damagerecived";
 import menusettings from "./Menu/menuSettings";
-import startGame from "./Menu/startgame";
 import gameTimer from "./Gameplay/gameTimer";
 import backtomenubtn from "./Menu/backtomenubtn";
 import applySettings from "./Settings/applySettings";
@@ -14,22 +12,23 @@ import credits from "./Menu/credits";
 import movement from "./Gameplay/movement";
 import shotFired from "./Gameplay/shotfired";
 import enemySpawn from "./Gameplay/enemyspawn";
-import enemyShot from "./Gameplay/enemyshot";
+import enemyShotSpawn from "./Gameplay/enemyShotSpawn";
 import enemyKilled from "./Gameplay/enemykilled";
 import reset from "./Menu/reset";
+import isshipgettingdamage from "./Gameplay/isshipgettingdamage";
 
-// desert color: rgb(143, 90, 66)
+const IsGameOver = { isGameOver: false };
+
 let difficulty: string = "normal";
 let spaceship: string = "spaceshipRed";
 let theme: string = "src/Imgages/BackgroundSpace.png";
-let health: number = 3;
-let score: number = 0;
-let timer: number = 0;
-let isGameOver: boolean = false;
 let shipPositionx: number = 0;
 let shipPositiony: number = 0;
 
 const backtomenubtns = document.querySelectorAll(".backToMenu");
+const harts: HTMLDivElement = document.querySelector(
+  ".harts"
+) as HTMLDivElement;
 
 settings(difficulty, spaceship, theme);
 difficulty = difficultyfinder();
@@ -47,7 +46,7 @@ backtomenubtns.forEach((btn) => {
 
 document.querySelector(".backToMainMenu")!.addEventListener("click", () => {
   reset();
-  isGameOver = true;
+  IsGameOver.isGameOver = true;
 });
 
 document.querySelector(".instructions")!.addEventListener("click", () => {
@@ -67,12 +66,13 @@ document.querySelector(".exit")!.addEventListener("click", () => {
 });
 
 document.querySelector(".startGame")!.addEventListener("click", () => {
-  startGame();
-  gameTimer(isGameOver);
-  enemySpawn(isGameOver);
-  enemyKilled(isGameOver);
-  enemyShot();
-  isGameOver = false;
+  IsGameOver.isGameOver = false;
+  (document.querySelector(".menu") as HTMLDivElement).style.display = "none";
+  isshipgettingdamage(IsGameOver);
+  gameTimer(IsGameOver);
+  enemySpawn(IsGameOver);
+  enemyKilled(IsGameOver);
+  enemyShotSpawn(IsGameOver);
 });
 
 document.addEventListener("keydown", (event: KeyboardEvent) => {

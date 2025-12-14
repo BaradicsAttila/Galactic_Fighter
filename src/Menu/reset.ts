@@ -9,8 +9,6 @@ function reset() {
   if (bScore != null) {
     bestScore.innerHTML = bScore;
   }
-  console.log(gameScore.innerHTML);
-  console.log(bestScore.innerHTML);
   if (Number(gameScore.innerHTML) > Number(bestScore.innerHTML)) {
     localStorage.setItem("BestScore", gameScore.innerHTML);
     bestScore.innerHTML = gameScore.innerHTML;
@@ -40,6 +38,7 @@ function reset() {
   (document.querySelector(".diffselecterdiv") as HTMLDivElement).style.display =
     "none";
   (document.querySelector(".scoreNumber") as HTMLSpanElement).innerHTML = "0";
+  (document.querySelector(".harts") as HTMLDivElement).style.width = 180 + "px";
 }
 
 export default reset;
