@@ -32,13 +32,13 @@ function enemyKilled(IsGameOver: { isGameOver: boolean }) {
       }
     });
   }
-  if (IsGameOver.isGameOver) {
+  if (IsGameOver.isGameOver == true) {
     while (enemyArea.firstChild) {
       enemyArea.removeChild(enemyArea.lastChild!);
     }
   }
 
-  if (!IsGameOver.isGameOver) {
+  if (IsGameOver.isGameOver == false) {
     setTimeout(() => {
       enemyKilled(IsGameOver);
     }, 10);

@@ -17,7 +17,7 @@ import enemyKilled from "./Gameplay/enemykilled";
 import reset from "./Menu/reset";
 import isshipgettingdamage from "./Gameplay/isshipgettingdamage";
 
-const IsGameOver = { isGameOver: false };
+const IsGameOver = { isGameOver: false as boolean };
 
 let difficulty: string = "normal";
 let spaceship: string = "spaceshipRed";
@@ -26,9 +26,6 @@ let shipPositionx: number = 0;
 let shipPositiony: number = 0;
 
 const backtomenubtns = document.querySelectorAll(".backToMenu");
-const harts: HTMLDivElement = document.querySelector(
-  ".harts"
-) as HTMLDivElement;
 
 settings(difficulty, spaceship, theme);
 difficulty = difficultyfinder();

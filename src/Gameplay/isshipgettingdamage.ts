@@ -5,19 +5,19 @@ function isshipgettingdamage(IsGameOver: { isGameOver: boolean }) {
   let spaceship: HTMLDivElement = document.querySelector(
     ".spaceship"
   ) as HTMLDivElement;
-  let shipPosX: number = parseInt(getComputedStyle(spaceship).left);
-  let shipPosY: number = parseInt(getComputedStyle(spaceship).bottom);
+  let shipPosLeft: number = parseInt(getComputedStyle(spaceship).left);
+  let shipPosBottom: number = parseInt(getComputedStyle(spaceship).bottom);
   let enemyshots: NodeListOf<HTMLDivElement> =
     document.querySelectorAll(".enemyShot");
 
   enemyshots.forEach((enemyShot) => {
-    let eShotPosX: number = parseInt(getComputedStyle(enemyShot).left);
-    let eShotPosY: number = parseInt(getComputedStyle(enemyShot).bottom);
+    let eShotPosLeft: number = parseInt(getComputedStyle(enemyShot).left);
+    let eShotPosBottom: number = parseInt(getComputedStyle(enemyShot).bottom);
     if (
-      shipPosX > eShotPosX &&
-      shipPosX < eShotPosX + 100 &&
-      shipPosY < eShotPosY + 50 &&
-      shipPosY > eShotPosY - 50
+      shipPosLeft < eShotPosLeft + 50 &&
+      shipPosLeft > eShotPosLeft - 90 &&
+      shipPosBottom < eShotPosBottom + 10 &&
+      shipPosBottom > eShotPosBottom - 60
     ) {
       let health: number =
         parseInt(
@@ -28,11 +28,12 @@ function isshipgettingdamage(IsGameOver: { isGameOver: boolean }) {
       health = damagerecived(health);
       if (health == 0) {
         console.log("deth");
+        IsGameOver.isGameOver = true;
         reset();
       }
     }
   });
-  if (!IsGameOver.isGameOver) {
+  if (IsGameOver.isGameOver == false) {
     setTimeout(() => {
       isshipgettingdamage(IsGameOver);
     }, 10);

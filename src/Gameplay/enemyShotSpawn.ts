@@ -6,6 +6,12 @@ function enemyShotSpawn(IsGameOver: { isGameOver: boolean }) {
   let enemyShot: HTMLDivElement = document.createElement("div");
   let whichEnemyShoot: number = Math.floor(Math.random() * enemys.length);
   let whatDirectionShoot: number = Math.floor(Math.random() * 100 - 50);
+  if (IsGameOver.isGameOver == true) {
+    while (enemyshotsarea.firstChild) {
+      enemyshotsarea.removeChild(enemyshotsarea.lastChild!);
+    }
+    return;
+  }
 
   for (let index = 0; index < enemys.length; index++) {
     const enemy = enemys[index];
@@ -29,16 +35,11 @@ function enemyShotSpawn(IsGameOver: { isGameOver: boolean }) {
       }, 20);
     }
   }
-  if (!IsGameOver.isGameOver) {
+
+  if (IsGameOver.isGameOver == false) {
     setTimeout(() => {
       enemyShotSpawn(IsGameOver);
     }, 400);
-  }
-
-  if (IsGameOver.isGameOver) {
-    while (enemyshotsarea.firstChild) {
-      enemyshotsarea.removeChild(enemyshotsarea.lastChild!);
-    }
   }
 }
 

@@ -1,4 +1,7 @@
 function enemySpawn(IsGameOver: { isGameOver: boolean }) {
+  if (IsGameOver.isGameOver == true) {
+    return;
+  }
   const enemyArea: HTMLDivElement = document.querySelector(
     ".enemyarea"
   ) as HTMLDivElement;
@@ -19,9 +22,8 @@ function enemySpawn(IsGameOver: { isGameOver: boolean }) {
       enemy.style.left = enemyLeft + "px";
     } else clearInterval(enemytimer);
   }, 20);
-  
 
-  if (!IsGameOver.isGameOver) {
+  if (IsGameOver.isGameOver == false) {
     setTimeout(() => {
       enemySpawn(IsGameOver);
     }, timeBetweenSpawns);
