@@ -1,12 +1,26 @@
+let enemytimeout: number | undefined;
+let isSpawning = false;
 function enemySpawn(IsGameOver: { isGameOver: boolean }) {
   if (IsGameOver.isGameOver == true) {
+    if (enemytimeout !== undefined) {
+      clearTimeout(enemytimeout);
+      enemytimeout = undefined;
+    }
+    isSpawning = false;
     return;
   }
+
+  if (isSpawning == true) {
+    return;
+  }
+
+  isSpawning = true;
+
   const enemyArea: HTMLDivElement = document.querySelector(
     ".enemyarea"
   ) as HTMLDivElement;
   let enemy: HTMLDivElement = document.createElement("div");
-  let timeBetweenSpawns: number = Math.round(Math.random() * 2000 + 500);
+  let timeBetweenSpawns: number = Math.round(Math.random() * 4000 + 1000);
   let randompos: number = Math.round(
     Math.random() * parseInt(getComputedStyle(enemyArea).height) * 0.75 + 50
   );
@@ -23,11 +37,10 @@ function enemySpawn(IsGameOver: { isGameOver: boolean }) {
     } else clearInterval(enemytimer);
   }, 20);
 
-  if (IsGameOver.isGameOver == false) {
-    setTimeout(() => {
-      enemySpawn(IsGameOver);
-    }, timeBetweenSpawns);
-  }
+  enemytimeout = setTimeout(() => {
+    isSpawning = false;
+    enemySpawn(IsGameOver);
+  }, timeBetweenSpawns / Number((document.querySelector(".selectedDiff") as HTMLInputElement).classList[1]));
 }
 
 export default enemySpawn;

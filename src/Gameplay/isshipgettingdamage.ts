@@ -26,10 +26,19 @@ function isshipgettingdamage(IsGameOver: { isGameOver: boolean }) {
         ) / 60;
       enemyShot.remove();
       health = damagerecived(health);
+      spaceship.classList.add("damage");
+      setTimeout(() => spaceship.classList.remove("damage"), 300);
       if (health == 0) {
-        console.log("deth");
         IsGameOver.isGameOver = true;
-        reset();
+        (document.querySelector(".gameOver") as HTMLDivElement).style.display =
+          "block";
+        (document.querySelector(".menu") as HTMLDivElement).style.display =
+          "block";
+        (document.querySelector(".menuponts") as HTMLDivElement).style.display =
+          "none";
+        (document.querySelector(".endTime") as HTMLDivElement).innerHTML = (
+          document.querySelector(".gameTime") as HTMLDivElement
+        ).innerHTML;
       }
     }
   });

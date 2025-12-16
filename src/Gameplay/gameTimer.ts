@@ -14,6 +14,7 @@ function gameTimer(IsGameOver: { isGameOver: boolean }) {
       minutes.toString().padStart(2, "0") +
       ":" +
       seconds.toString().padStart(2, "0");
+
     if (IsGameOver.isGameOver == true) {
       clearInterval(timertimer);
     }

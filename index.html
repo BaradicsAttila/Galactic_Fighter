@@ -13,7 +13,6 @@
       <div class="menuponts">
         <div class="startGame">Start Game</div>
         <div class="instructions">Instructions</div>
-        <div class="menuSettings">Settings</div>
         <div class="credits">Credits</div>
         <div class="exit">Exit</div>
       </div>
@@ -32,18 +31,11 @@
           >/<span class="ctrlRight">D</span>
         </p>
         <p>- Shoot: Spacebar</p>
-        <p>- Pause: Esc</p>
         <h3>How to Play:</h3>
         <p>- Navigate your ship to dodge enemy buletts</p>
         <p>- Press Spacebar to fire your weapons and take down enemies.</p>
-        <p>
-          - Enemies appear in waves. Each wave becomes faster and more
-          dangerous.
-        </p>
-        <p>- Avoid getting hit—your ship can only take three damage.</p>
-        <p>
-          - Collect power-ups to boost weapons, restore health, or gain shields.
-        </p>
+        <p>- Enemies appear every few seconds.</p>
+        <p>- Avoid getting hit, your ship can only take three damage.</p>
         <h3>Game Over:</h3>
         <p>
           - The Game ends when you lose all your life and your ship gets
@@ -51,12 +43,6 @@
         </p>
         <h3>Tip:</h3>
         <p>- Keep moving. Standing still makes you an easy target!</p>
-        <div class="backToMenu"></div>
-      </div>
-      <div class="menuSettingsList">
-        <h3>Settings</h3>
-        <p>- You can change difficulty spaceship, and theme in-game.</p>
-        <p></p>
         <div class="backToMenu"></div>
       </div>
       <div class="creditslist">
@@ -121,7 +107,7 @@
       <div class="diffselecterdiv">
         <input id="option1" type="radio" name="difchange" value="easy" /><label
           for="option1"
-          class="easy diffpadd"
+          class="easy 1 diffpadd"
           >Easy</label
         >
         <input
@@ -129,12 +115,12 @@
           type="radio"
           name="difchange"
           value="normal"
-        /><label for="option2" class="normal diffpadd selectedDiff"
+        /><label for="option2" class="normal 2 diffpadd selectedDiff"
           >Normal</label
         >
         <input id="option3" type="radio" name="difchange" value="hard" /><label
           for="option3"
-          class="hard diffpadd"
+          class="hard 4 diffpadd"
           >Hard</label
         >
       </div>
@@ -153,12 +139,19 @@
       </div>
       <div class="apply"></div>
     </div>
-    <div class="backToMainMenu"></div>
+    <div class="backToMenu"></div>
     <div class="map">
       <div class="spaceship"></div>
       <div class="shots mapparsts"></div>
       <div class="enemyarea mapparsts"></div>
       <div class="enemyshotsarea mapparsts"></div>
+    </div>
+    <div class="gameOver">
+      <p class="gOTitle">Game Over</p>
+      <p>You lasted: <span class="endTime"></span></p>
+      <p>Final score: <span class="scoreNumber">0</span></p>
+      <p>Best score: <span class="bestScoreNumber">0</span></p>
+      <div class="backToMenu"></div>
     </div>
   </body>
 </html>

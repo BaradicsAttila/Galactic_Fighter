@@ -1,4 +1,4 @@
-function settings(difficulty: string, spaceship: string, theme: string): void {
+function settings(): void {
   const settingsDiv: HTMLDivElement = document.querySelector(
     ".settings"
   ) as HTMLDivElement;

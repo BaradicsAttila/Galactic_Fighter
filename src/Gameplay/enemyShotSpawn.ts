@@ -35,11 +35,15 @@ function enemyShotSpawn(IsGameOver: { isGameOver: boolean }) {
       }, 20);
     }
   }
-
+  console.log(
+    Number(
+      (document.querySelector(".selectedDiff") as HTMLInputElement).classList[1]
+    )
+  );
   if (IsGameOver.isGameOver == false) {
     setTimeout(() => {
       enemyShotSpawn(IsGameOver);
-    }, 400);
+    }, 800 / Number((document.querySelector(".selectedDiff") as HTMLInputElement).classList[1]));
   }
 }
 

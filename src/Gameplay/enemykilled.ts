@@ -1,7 +1,6 @@
 function enemyKilled(IsGameOver: { isGameOver: boolean }) {
-  let score: HTMLSpanElement = document.querySelector(
-    ".scoreNumber"
-  ) as HTMLSpanElement;
+  let scores: NodeListOf<HTMLSpanElement> =
+    document.querySelectorAll(".scoreNumber");
   let enemys: NodeListOf<HTMLDivElement> = document.querySelectorAll(".enemy");
   const enemyArea: HTMLDivElement = document.querySelector(
     ".enemyarea"
@@ -10,26 +9,28 @@ function enemyKilled(IsGameOver: { isGameOver: boolean }) {
     ".shots"
   ) as HTMLDivElement;
   if (shots.childElementCount > 0 && enemyArea.childElementCount > 0) {
-    let shot: HTMLDivElement = document.querySelector(
-      ".shot"
-    ) as HTMLDivElement;
+    let shots: NodeListOf<HTMLDivElement> = document.querySelectorAll(".shot");
 
-    let shotPositionX: number = parseInt(getComputedStyle(shot).left);
-    let shotPositionY: number = parseInt(getComputedStyle(shot).bottom);
     enemys.forEach((enemy) => {
-      let enemyPosX: number = parseInt(getComputedStyle(enemy).left);
-      let enemyPosY: number = parseInt(getComputedStyle(enemy).bottom);
-      if (
-        enemyPosX < shotPositionX &&
-        enemyPosX > shotPositionX - 50 &&
-        enemyPosY < shotPositionY + 20 &&
-        enemyPosY > shotPositionY - 50
-      ) {
-        enemyArea.removeChild(enemy);
-        shot.remove();
-        let scorenum: number = Number(score.innerHTML) + 1;
-        score.innerHTML = scorenum.toString();
-      }
+      shots.forEach((shot) => {
+        let shotPositionX: number = parseInt(getComputedStyle(shot).left);
+        let shotPositionY: number = parseInt(getComputedStyle(shot).bottom);
+        let enemyPosX: number = parseInt(getComputedStyle(enemy).left);
+        let enemyPosY: number = parseInt(getComputedStyle(enemy).bottom);
+        if (
+          enemyPosX < shotPositionX &&
+          enemyPosX > shotPositionX - 50 &&
+          enemyPosY < shotPositionY + 30 &&
+          enemyPosY > shotPositionY - 70
+        ) {
+          enemyArea.removeChild(enemy);
+          shot.remove();
+          let scorenum: number = Number(scores[0].innerHTML) + 1;
+          scores.forEach((score) => {
+            score.innerHTML = scorenum.toString();
+          });
+        }
+      });
     });
   }
   if (IsGameOver.isGameOver == true) {

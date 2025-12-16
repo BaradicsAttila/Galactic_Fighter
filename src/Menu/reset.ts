@@ -1,19 +1,6 @@
+import scoresett from "../Settings/scoresett";
 function reset() {
-  let bScore: string | null = localStorage.getItem("BestScore");
-  let gameScore: HTMLSpanElement = document.querySelector(
-    ".scoreNumber"
-  ) as HTMLSpanElement;
-  let bestScore: HTMLSpanElement = document.querySelector(
-    ".bestScoreNumber"
-  ) as HTMLSpanElement;
-  if (bScore != null) {
-    bestScore.innerHTML = bScore;
-  }
-  if (Number(gameScore.innerHTML) > Number(bestScore.innerHTML)) {
-    localStorage.setItem("BestScore", gameScore.innerHTML);
-    bestScore.innerHTML = gameScore.innerHTML;
-  }
-
+  scoresett();
   (document.querySelector(".menu") as HTMLDivElement).style.display = "block";
   (document.querySelector(".menuponts") as HTMLDivElement).style.display =
     "flex";
@@ -21,9 +8,6 @@ function reset() {
     "none";
   (document.querySelector(".gametitle") as HTMLDivElement).style.display =
     "block";
-  (
-    document.querySelector(".menuSettingsList") as HTMLDivElement
-  ).style.display = "none";
   (document.querySelector(".creditslist") as HTMLDivElement).style.display =
     "none";
   (document.querySelector(".settingsList") as HTMLDivElement).style.display =
@@ -37,8 +21,14 @@ function reset() {
   ).style.display = "none";
   (document.querySelector(".diffselecterdiv") as HTMLDivElement).style.display =
     "none";
-  (document.querySelector(".scoreNumber") as HTMLSpanElement).innerHTML = "0";
   (document.querySelector(".harts") as HTMLDivElement).style.width = 180 + "px";
+  let gameScores: NodeListOf<HTMLSpanElement> =
+    document.querySelectorAll(".scoreNumber");
+  gameScores.forEach((score) => {
+    score.innerHTML = "0";
+  });
+  (document.querySelector(".gameOver") as HTMLDivElement).style.display =
+    "none";
 }
 
 export default reset;
