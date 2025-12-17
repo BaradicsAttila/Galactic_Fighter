@@ -1,5 +1,4 @@
 import damagerecived from "./damagerecived";
-import reset from "../Menu/reset";
 
 function isshipgettingdamage(IsGameOver: { isGameOver: boolean }) {
   let spaceship: HTMLDivElement = document.querySelector(
